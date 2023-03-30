@@ -1,0 +1,66 @@
+<%- include('includes/head.ejs') %>
+
+<br>
+<img src="https://d19tiqumqauva7.cloudfront.net/var/andorra/storage/images/4/4/6/8/23828644-21-cat-ES/1920X516_RUTA-ECO-GUIADA-IT-FONTVERD1.jpg" class="img-fluid" style="opacity: 0.4;" alt="Responsive image">
+<br>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header-title">
+            <p class="title has-text-centered">Feed</p>
+        </div>
+        <div class="card-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quo qui earum nam reprehenderit consequatur minima doloribus iure tempore, accusantium ex asperiores explicabo consectetur a distinctio ipsa. Ducimus, nostrum dolores!
+        </div>
+    </div>
+    <br>
+    <a href="/posts/add" class="button is-link is-rounded">
+        Agregar nuevo post
+    </a>
+
+<!-- we will use the following code to display the posts in the feed.ejs file -->
+<% if (posts.length > 0) { %>
+    <div class="columns">
+        <% let columns = 0; %>
+        <% for (let post of posts) { %>
+            <% if (columns % 4 == 0) { %>
+    </div>
+    <div class="columns">
+            <% } %>
+            <% columns++; %>
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="<%= post.imagen %>" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="<%= post.imagen %>" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4"><%= post.titulo %></p>
+                            </div>
+                        </div>
+                    
+                        <div class="content">
+                            <%= post.contenido %> <a><%= post.handle %></a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+<% } else { %>
+    <h1>No hay posts registradas</h1>
+<% } %>
+   
+
+</div>

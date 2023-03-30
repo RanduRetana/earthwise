@@ -1,0 +1,15 @@
+<%- include('includes/head.ejs') %>
+
+<h1 class="title">Registrar nuevo post</h1>
+
+<form action="/posts/add" method="POST">
+
+    <label for="titulo">titulo:</label>
+    <input required name="titulo" id="titulo" class="input is-rounded" type="text" placeholder="holaa">
+    <br><br>
+    <label for="contenido">contenido:</label>
+    <input name="contenido" id="contenido" class="input is-rounded" type="text" placeholder="contenido woow">
+    <br><br>
+    <input class="button is-rounded is-success" type="submit" value="Registrar">
+
+</form>
